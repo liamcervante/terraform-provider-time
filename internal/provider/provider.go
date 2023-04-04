@@ -27,7 +27,9 @@ func (p *timeProvider) Configure(ctx context.Context, req provider.ConfigureRequ
 }
 
 func (p *timeProvider) DataSources(ctx context.Context) []func() datasource.DataSource {
-	return nil
+	return []func() datasource.DataSource{
+		NewTimeNowDataSource,
+	}
 }
 
 func (p *timeProvider) Resources(ctx context.Context) []func() resource.Resource {
